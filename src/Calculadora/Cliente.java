@@ -7,14 +7,25 @@ import java.util.Scanner;
 public class Cliente {
 	public static void main(String[] args) {
 		RMICalcInterface calc = null;
+		
 		try {
 			Registry reg = LocateRegistry.getRegistry("localhost",5555);
 			calc = (RMICalcInterface) reg.lookup("Calculadora");
 			
 			if (calc==null) {
-				
+				System.out.println("Registro Nulo ");
 			}else {
-				
+				int numero1=0,numero2=0;
+				System.out.print("Introduce el Primer Numero: ");
+				System.out.print("Introduce el Segundo Numero: ");
+				System.out.println("============================");
+				System.out.println("Suma : "+calc.suma(numero1, numero2));
+				System.out.println("============================");
+				System.out.println("Resta : " +calc.resta(numero1, numero2));
+				System.out.println("============================");
+				System.out.println("Producto: "+calc.producto(numero1, numero2));
+				System.out.println("============================");
+				System.out.println("Division: "+calc.div(numero1, numero2));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
