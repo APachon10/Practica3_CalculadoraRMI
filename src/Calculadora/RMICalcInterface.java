@@ -12,4 +12,7 @@ public interface RMICalcInterface extends Remote{
 		public int producto (int num1,int num2) throws RemoteException;
 		//Funcion para calcular la Division  
 		public int div (int num1,int num2) throws RemoteException;
+		//Funcion para calcular el Porcentaje
+		public int porcentaje(int num1,int porcentaje) throws RemoteException;
+		
 }

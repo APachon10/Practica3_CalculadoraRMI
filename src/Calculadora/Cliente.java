@@ -29,6 +29,12 @@ public class Cliente {
 				System.out.println("Producto: "+calc.producto(numero1, numero2));
 				System.out.println("============================");
 				System.out.println("Division: "+calc.div(numero1, numero2));
+				System.out.println("============================");
+				System.out.print("Introduce un Numero: ");
+				int numero_m = leerEnteros();
+				System.out.print("Introduce un Porcentaje: ");
+				int porcen = leerEnteros();
+				System.out.println("Tanto por ciento de "+numero_m + " es igual a : "+ calc.porcentaje(numero_m, porcen));
 			}
 		} catch (Exception e) {
 			System.out.println("Error!! : "+e);

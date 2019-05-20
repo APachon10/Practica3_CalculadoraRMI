@@ -50,4 +50,10 @@ public class Servidor implements RMICalcInterface{
 		res = num1/num2;
 		return res;
 	}
+	@Override
+	public int porcentaje(int num1,int porcentaje) throws RemoteException{
+		int res =0;
+		res = (num1*porcentaje)/100;
+		return res;
+	}
 }
