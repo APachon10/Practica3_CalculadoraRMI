@@ -9,9 +9,7 @@ public class Cliente {
 		RMICalcInterface calc = null;
 		try {
 			Registry reg = LocateRegistry.getRegistry("localhost",1234);
-			System.out.println("Reg : "+reg);
 			calc = (RMICalcInterface) reg.lookup("Calculadora");
-			System.out.println("calc : "+calc);
 			
 			if (calc==null) {
 				System.out.println("Registro Nulo ");

@@ -1,5 +1,7 @@
 package Calculadora;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -8,15 +10,15 @@ import java.rmi.server.UnicastRemoteObject;
 public class Servidor implements RMICalcInterface{
 	
 	//Metodo Main 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnknownHostException {
 		Registry reg = null;
 		Servidor v = new Servidor();
-		System.setProperty("java.rmi.server.hostname","192.168.0.12");
+		System.setProperty("java.rmi.server.hostname",InetAddress.getLocalHost().getHostAddress());
 		try {
 			reg = LocateRegistry.createRegistry(1234);
 			reg.rebind("Calculadora",
 			(RMICalcInterface) UnicastRemoteObject.exportObject(v, 0));
-			System.out.println("Hola");
+			System.out.println("Servidor Preparado ");
 		} catch (Exception e) {
 			System.out.println("Error : "+e);
 			e.printStackTrace();
